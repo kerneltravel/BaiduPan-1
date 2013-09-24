@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>百度音乐外链转换——破博客</title>
 </head>
  
 <script type="text/javascript">
-function Change()
-{
+function Change() {
+    //替换为自己的域名
+    var domain = "http://poboke.com";
     var url = document.getElementById("text1").value;
-    var params = url.substr(url.indexOf("?") + 1);
-    eval(params.replace("&", ";"));
-    var songurl = "http://poboke.com/baidupan.php/"+shareid+"/"+uk+".mp3";
+    if (url.indexOf("?") > 0) {
+        var params = url.substr(url.indexOf("?") + 1);
+        eval(params.replace("&", ";"));
+        var songurl = domain+"/baidupan.php/"+shareid+"/"+uk+".mp3";
+    } else {
+        var key = url.split("/").pop();
+        var songurl = domain+"/baidupan.php/"+key+".mp3";
+    }
     document.getElementById("text2").value = songurl;
 }
 </script>
