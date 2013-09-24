@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+ 
+<script type="text/javascript">
+function Change()
+{
+    var url = document.getElementById("text1").value;
+    var params = url.substr(url.indexOf("?") + 1);
+    eval(params.replace("&", ";"));
+    var songurl = "http://poboke.com/baidupan.php/"+shareid+"/"+uk+".mp3";
+    document.getElementById("text2").value = songurl;
+}
+</script>
+ 
+<body>
+    分享地址：<input id="text1" type="TEXT" value="" size="100"/><br />
+    外链地址：<input id="text2" type="TEXT" value="" size="100"/><br />
+    <input type="BUTTON" value="转换" onclick="Change()"/>
+</body>
+</html>
