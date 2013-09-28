@@ -1,8 +1,8 @@
 <?php
 //构造百度网盘分享网址
 $uri = $_SERVER["REQUEST_URI"];
-if (strpos($uri, "?")) {
-    preg_match('|\/(\d+)\/(\d+)\.|', $uri, $res);
+preg_match('|\/(\d+)\/(\d+)\.|', $uri, $res);
+if ($res) {
     list($shareid, $uk) = array_slice($res, 1, 2);
     $url = "http://pan.baidu.com/share/link?shareid=$shareid&uk=$uk";
 } else {
